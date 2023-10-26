@@ -25,6 +25,9 @@ module.exports = {
         if (msg.length >= 2000) {
             msg = msg.substring(0,1950) + '...';
         }
+        if (msg.length == 0) {
+            msg = 'There aren\'t any taunts that contain the phrase ' + textToFind +'!';
+        }
 
 		await interaction.reply({ content: msg, ephemeral: true});
 	},
