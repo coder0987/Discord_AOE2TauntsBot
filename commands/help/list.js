@@ -22,6 +22,10 @@ module.exports = {
             }
         }
 
+        if (msg.length >= 2000) {
+            msg = msg.substring(0,1950) + '...';
+        }
+
 		await interaction.reply({ content: msg, ephemeral: true});
 	},
 };
