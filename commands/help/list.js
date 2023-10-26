@@ -13,20 +13,29 @@ module.exports = {
         let textToFind = interaction.options.getString('text');
         if (textToFind) {
             textToFind = textToFind.toLowerCase();
+            for (let i in TAUNTS_TO_TEXT) {
+                if (TAUNTS_TO_TEXT[i].toLowerCase().includes(textToFind)) {
+                    msg += i + '. ' + TAUNTS_TO_TEXT[i] + '\n';
+                }
+            }
         } else {
             textToFind = '';
-        }
-        for (let i in TAUNTS_TO_TEXT) {
-            if (TAUNTS_TO_TEXT[i].toLowerCase().includes(textToFind)) {
+            for (let i=1; i<51; i++) {
+                msg += i + '. ' + TAUNTS_TO_TEXT[i] + '\n';
+            }
+            await interaction.reply({ content: msg, ephemeral: true});
+            msg = '';
+            for (let i=51; i<106; i++) {
                 msg += i + '. ' + TAUNTS_TO_TEXT[i] + '\n';
             }
         }
+
 
         if (msg.length >= 2000) {
             msg = msg.substring(0,1950) + '...';
         }
         if (msg.length == 0) {
-            msg = 'There aren\'t any taunts that contain the phrase ' + textToFind +'!';
+            msg = 'There aren\'t any taunts that contain the phrase "' + textToFind +'"!';
         }
 
 		await interaction.reply({ content: msg, ephemeral: true});
