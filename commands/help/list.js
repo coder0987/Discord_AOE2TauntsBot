@@ -10,7 +10,7 @@ module.exports = {
         		.setDescription('Find a taunt that contains the specified text')),
 	async execute(interaction) {
 		let msg = '';
-        let textToFind = interaction.data.options[0].value;
+        let textToFind = interaction.options.getString('text');
         if (textToFind) {
             textToFind = textToFind.toLowerCase();
         } else {
@@ -18,7 +18,7 @@ module.exports = {
         }
         for (let i in TAUNTS_TO_TEXT) {
             if (TAUNTS_TO_TEXT[i].toLowerCase().includes(textToFind)) {
-                msg += i + '.' + TAUNTS_TO_TEXT[i] + '\n';
+                msg += i + '. ' + TAUNTS_TO_TEXT[i] + '\n';
             }
         }
 
