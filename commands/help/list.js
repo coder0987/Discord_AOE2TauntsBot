@@ -25,9 +25,16 @@ module.exports = {
             }
             await interaction.reply({ content: msg, ephemeral: true});
             msg = '';
-            for (let i=51; i<106; i++) {
+            for (let i=51; i<100; i++) {
                 msg += i + '. ' + TAUNTS_TO_TEXT[i] + '\n';
             }
+            await interaction.followUp({ content: msg, ephemeral: true});
+            msg = '';
+            for (let i=101; i<106; i++) {
+                msg += i + '. ' + TAUNTS_TO_TEXT[i] + '\n';
+            }
+            await interaction.followUp({ content: msg, ephemeral: true});
+            return;
         }
 
 
