@@ -15,7 +15,7 @@ module.exports = {
             textToFind = textToFind.toLowerCase();
             for (let i in TAUNTS_TO_TEXT) {
                 if (TAUNTS_TO_TEXT[i].toLowerCase().includes(textToFind)) {
-                    msg += i + '. ' + TAUNTS_TO_TEXT[i] + '\n';
+                    msg += i + '\\. ' + TAUNTS_TO_TEXT[i] + '\n';
                 }
             }
         } else {
